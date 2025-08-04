@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unimaxx</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <header class="header">
+        <section class="header-container">
+            <a href="#" class="logo"><img src="./img/logounimaxx.png" alt="Logo Unimaxx" /></a>
+            <nav class="navbar">
+                <a href="#">Home</a>
+                <a href="#about">Sobre</a>
+                <a href="#menu">Menu</a>
+                <a href="#review">Avaliações</a>
+                <a href="#address">Endereço</a>
+            </nav>
+            <div class="icons">
+                <img src="https://img.icons8.com/ios-filled/30/242424/search--v2.png" alt="Busca" />
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="home-container" id="home">
+            <div class="content">
+                <h1>Soluções para Food, Varejo, Atacado e Indústria</h1>
+                <p>Na Unimaxx, acreditamos que tecnologia bem aplicada transforma negócios.</p>
+                <a href="#" class="btn">Pegue o seu Agora</a>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2 class="tittle hidden">Sobre <span>Nós</span></h2>
+            <div class="row hidden">
+                <div class="container-image hidden">
+                    <img src="./img/about.png" alt="Sobre a Unimaxx">
+                </div>
+                <div class="content-sobrenos hidden">
+                    <h3>Sobre a Unimaxx</h3>
+                    <p>A UnimaxxUnimaxx Soluções em Tecnologia
+                        é uma empresa de tecnologia especializada em sistemas inteligentes
+                        e personalizados para segmentos de food service, varejo,
+                        atacado e industriais. Entregamos Soluções que transformam processos em resultados reais
+                    </p>
+                    <a href="#saiba-mais" class="btn-destaque hidden">Saiba mais!</a>
+                </div>
+            </div>
+
+
+            <!-- Carrossel -->
+            <section class="solucoes">
+  <div class="solucoes-container hidden">
+    <h2 class="solucoes-titulo">Unimaxx Tem solução para tudo!</h2>
+    <p class="solucoes-texto">
+      -------------------------------------------------------- <br>
+    ---------------------------------------------------------. <br>
+     --------------------------------------------------------.
+    </p>
+
+    <div class="solucoes-cards">
+      <div class="card">
+        <img src="./img/CestaPDV.png" alt="">
+        <h3>MaxxPDV</h3>
+        <a href="https://app.maxxpdv.com.br/" class="confira-btn">confira</a>
+      </div>
+      <div class="card">
+        <img src="./img/certificado.png" alt="">
+        <h3>Certificado Digital</h3>
+        <a href="https://loja.unimaxx.com.br/Produto/678011b5fa69e627ff9a978e/Certificado-Digital/CERTIFICADO-DIGITAL-A1-PJ" class="confira-btn">confira</a>
+      </div>
+      <div class="card">
+        <img src="./img/icone1.png" alt="">
+        <h3>Foods Service</h3>
+        <a href="#" class="confira-btn">confira</a>
+      </div>
+      <div class="card">
+        <img src="./img/icone1.png" alt="">
+        <h3>Varejo</h3>
+        <a href="#" class="confira-btn">confira</a>
+      </div>
+      <div class="card">
+        <img src="./img/icone1.png" alt="">
+        <h3>Atacado</h3>
+        <a href="#" class="confira-btn">confira</a>
+      </div>
+      <div class="card">
+        <img src="./img/icone1.png" alt="">
+        <h3>Boletos</h3>
+        <a href="#" class="confira-btn">confira</a>
+      </div>
+    </div>
+  </div>
+</section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper(".mySwiper", {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                320: { slidesPerView: 1.2, spaceBetween: 10 },
+                768: { slidesPerView: 2.5, spaceBetween: 20 },
+                1024: { slidesPerView: 4, spaceBetween: 30 }
+            }
+        });
+    </script>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    if (entry.target.classList.contains('btn')) {
+                        entry.target.classList.add('pulse-on-visible');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        document.querySelectorAll('.about .hidden').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
